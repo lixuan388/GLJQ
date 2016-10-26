@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A0B54485-E75F-4EBB-ADAC-BFA7E56361FF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GLJQ2014.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\source\GLJQ.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\pc\Documents\RAD Studio\Projects\Project1.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GLJQ2014">
+        <MSBuild Projects="GLJQ2014.dproj"/>
+    </Target>
+    <Target Name="GLJQ2014:Clean">
+        <MSBuild Projects="GLJQ2014.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GLJQ2014:Make">
+        <MSBuild Projects="GLJQ2014.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GLJQ">
+        <MSBuild Projects="..\source\GLJQ.dproj"/>
+    </Target>
+    <Target Name="GLJQ:Clean">
+        <MSBuild Projects="..\source\GLJQ.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GLJQ:Make">
+        <MSBuild Projects="..\source\GLJQ.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project1">
+        <MSBuild Projects="C:\Users\pc\Documents\RAD Studio\Projects\Project1.dproj"/>
+    </Target>
+    <Target Name="Project1:Clean">
+        <MSBuild Projects="C:\Users\pc\Documents\RAD Studio\Projects\Project1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project1:Make">
+        <MSBuild Projects="C:\Users\pc\Documents\RAD Studio\Projects\Project1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GLJQ2014;GLJQ;Project1"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GLJQ2014:Clean;GLJQ:Clean;Project1:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GLJQ2014:Make;GLJQ:Make;Project1:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
